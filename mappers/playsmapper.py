@@ -51,7 +51,7 @@ class PlaysMapper(object):
                 from okooo.play 
                 where play_result is not null
                   and jsonb_array_length(odds_info) > 0
-                  and id >= 150000
+                  and play_time <= '2016-12-31'
                 order by id asc
                 limit %(limit)s offset %(offset)s
                 ;
@@ -72,7 +72,8 @@ class PlaysMapper(object):
                 from okooo.play 
                 where play_result is not null
                   and jsonb_array_length(odds_info) > 0
-                  and id < 150000
+                  and play_time >= '2017-01-01'
+                  and play_time <=  '2017-12-31'
                 order by id asc
                 limit %(limit)s offset %(offset)s
                 ;
